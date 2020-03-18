@@ -8,6 +8,9 @@ import com.jme3.scene.Geometry;
 import com.jme3.scene.debug.Arrow;
 import com.jme3.scene.shape.Sphere;
 import com.jme3.system.AppSettings;
+import com.junlancer.FlyBattleDemo.Node.plane.MyAPlane;
+import com.junlancer.FlyBattleDemo.controller.MyController;
+import com.junlancer.utils.Controller;
 import com.junlancer.utils.CreateCoordinateSystem;
 
 public class ImpactChecking extends SimpleApplication {
@@ -28,8 +31,10 @@ public class ImpactChecking extends SimpleApplication {
         Material mat2 = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
         mat2.setColor("Color", ColorRGBA.Blue);
         geometry2.setMaterial(mat2);
-        geometry2.move(1, 0, 0);
+        geometry2.move(2, 0, 0);
         rootNode.attachChild(geometry2);
+        //添加控制器
+        new Controller(geometry2, inputManager);
 
 
         //建立坐标系
@@ -37,13 +42,15 @@ public class ImpactChecking extends SimpleApplication {
         for (int i = 0; i < coordinateSystem.length; i++) {
             rootNode.attachChild(coordinateSystem[i]);
         }
+        //算出两球球心之间的距离小于两球的半径之和
+
     }
 
 
     public static void main(String[] s) {
         ImpactChecking lancher = new ImpactChecking();
         AppSettings settings = new AppSettings(true);
-        settings.setTitle("FlyBattleDemo");// 标题
+        settings.setTitle("ImpactChecking");// 标题
         settings.setResolution(1600, 900);// 分辨率
         settings.setDepthBits(24);
         settings.setSamples(16);//抗锯齿
