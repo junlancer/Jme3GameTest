@@ -6,7 +6,6 @@ import com.jme3.input.controls.AnalogListener;
 import com.jme3.input.controls.KeyTrigger;
 import com.jme3.math.Vector3f;
 import com.jme3.scene.Geometry;
-import com.junlancer.FlyBattleDemo.Main;
 
 public class Controller implements AnalogListener {
     private final static String AHEAD = "AHEAD";

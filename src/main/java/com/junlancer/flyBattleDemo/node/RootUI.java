@@ -1,7 +1,6 @@
-package com.junlancer.FlyBattleDemo.Node;
+package com.junlancer.flyBattleDemo.node;
 
 import com.jme3.scene.Geometry;
-import com.jme3.scene.Spatial;
 
 public class RootUI extends Geometry {
 }

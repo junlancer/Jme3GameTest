@@ -1,4 +1,4 @@
-package com.junlancer.FlyBattleDemo;
+package com.junlancer.flyBattleDemo;
 
 import com.jme3.app.SimpleApplication;
 import com.jme3.asset.AssetManager;
@@ -8,8 +8,8 @@ import com.jme3.math.Vector3f;
 import com.jme3.scene.Geometry;
 import com.jme3.scene.Node;
 import com.jme3.system.AppSettings;
-import com.junlancer.FlyBattleDemo.Node.plane.*;
-import com.junlancer.FlyBattleDemo.controller.MyController;
+import com.junlancer.flyBattleDemo.node.plane.*;
+import com.junlancer.flyBattleDemo.controller.MyController;
 
 import java.util.ArrayList;
 
@@ -81,7 +81,7 @@ public class Main extends SimpleApplication {
     public static void main(String[] s) {
         Main lancher = new Main();
         AppSettings settings = new AppSettings(true);
-        settings.setTitle("FlyBattleDemo");// 标题
+        settings.setTitle("flyBattleDemo");// 标题
         settings.setResolution(480, 600);// 分辨率
         settings.setDepthBits(24);
         settings.setSamples(16);//抗锯齿

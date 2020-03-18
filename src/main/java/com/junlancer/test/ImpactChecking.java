@@ -3,13 +3,9 @@ package com.junlancer.test;
 import com.jme3.app.SimpleApplication;
 import com.jme3.material.Material;
 import com.jme3.math.ColorRGBA;
-import com.jme3.math.Vector3f;
 import com.jme3.scene.Geometry;
-import com.jme3.scene.debug.Arrow;
 import com.jme3.scene.shape.Sphere;
 import com.jme3.system.AppSettings;
-import com.junlancer.FlyBattleDemo.Node.plane.MyAPlane;
-import com.junlancer.FlyBattleDemo.controller.MyController;
 import com.junlancer.utils.Controller;
 import com.junlancer.utils.CreateCoordinateSystem;
 

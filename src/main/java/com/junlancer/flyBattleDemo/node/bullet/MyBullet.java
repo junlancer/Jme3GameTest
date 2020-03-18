@@ -1,11 +1,11 @@
-package com.junlancer.FlyBattleDemo.Node.bullet;
+package com.junlancer.flyBattleDemo.node.bullet;
 
 import com.jme3.material.Material;
 import com.jme3.math.ColorRGBA;
 import com.jme3.math.Vector3f;
 import com.jme3.scene.Geometry;
 import com.jme3.scene.shape.Sphere;
-import com.junlancer.FlyBattleDemo.Main;
+import com.junlancer.flyBattleDemo.Main;
 
 public class MyBullet extends Geometry {
     public MyBullet(Vector3f location) {

@@ -1,12 +1,12 @@
-package com.junlancer.FlyBattleDemo.controller;
+package com.junlancer.flyBattleDemo.controller;
 
 import com.jme3.input.InputManager;
 import com.jme3.input.KeyInput;
 import com.jme3.input.controls.AnalogListener;
 import com.jme3.input.controls.KeyTrigger;
 import com.jme3.math.Vector3f;
-import com.junlancer.FlyBattleDemo.Main;
-import com.junlancer.FlyBattleDemo.Node.plane.MyAPlane;
+import com.junlancer.flyBattleDemo.Main;
+import com.junlancer.flyBattleDemo.node.plane.MyAPlane;
 
 public class MyController implements AnalogListener {
     private final static String PAUSE = "Pause";

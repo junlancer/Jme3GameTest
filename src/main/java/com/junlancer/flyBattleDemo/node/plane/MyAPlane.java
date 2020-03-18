@@ -1,11 +1,11 @@
-package com.junlancer.FlyBattleDemo.Node.plane;
+package com.junlancer.flyBattleDemo.node.plane;
 
 import com.jme3.material.Material;
 import com.jme3.math.ColorRGBA;
 import com.jme3.scene.Geometry;
 import com.jme3.scene.shape.Sphere;
-import com.junlancer.FlyBattleDemo.Main;
-import com.junlancer.FlyBattleDemo.Node.bullet.MyBullet;
+import com.junlancer.flyBattleDemo.Main;
+import com.junlancer.flyBattleDemo.node.bullet.MyBullet;
 
 public class MyAPlane extends Geometry {
     private int vlaue = 100;
