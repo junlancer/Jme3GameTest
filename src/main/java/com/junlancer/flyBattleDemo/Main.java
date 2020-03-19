@@ -10,6 +10,7 @@ import com.jme3.scene.Node;
 import com.jme3.system.AppSettings;
 import com.junlancer.flyBattleDemo.node.plane.*;
 import com.junlancer.flyBattleDemo.controller.MyController;
+import com.junlancer.utils.PointsDistance;
 
 import java.util.ArrayList;
 
@@ -67,9 +68,13 @@ public class Main extends SimpleApplication {
                 enemyPlanes.add(new EnemyPlane(myAPlane.getLocalTranslation()));
             }
         }
-        for (Geometry enemyPlane : enemyPlanes) {
-            rootNode.attachChild(enemyPlane);
-            enemyPlane.move((myAPlane.getLocalTranslation().getX()-enemyPlane.getLocalTranslation().getX())*tpf, (myAPlane.getLocalTranslation().getY()-enemyPlane.getLocalTranslation().getY())*tpf, 0);
+        //敌机移动
+        for (int i = 0; i < enemyPlanes.size(); i++) {
+            rootNode.attachChild(enemyPlanes.get(i));
+            if (PointsDistance.getPointsDistance(enemyPlanes.get(i).getLocalTranslation(), myAPlane.getLocalTranslation()) > 0.75f) {
+                //未发生碰撞，移动
+                enemyPlanes.get(i).move((myAPlane.getLocalTranslation().x - enemyPlanes.get(i).getLocalTranslation().x) * tpf, (myAPlane.getLocalTranslation().y - enemyPlanes.get(i).getLocalTranslation().y) * tpf, 0);
+            }
         }
         //锁定视角
         //cam.setLocation(new Vector3f(myAPlane.getLocalTranslation().getX(),myAPlane.getLocalTranslation().getY(),10f));
