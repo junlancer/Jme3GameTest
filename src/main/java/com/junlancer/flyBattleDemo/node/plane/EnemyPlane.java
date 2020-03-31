@@ -10,6 +10,8 @@ import com.junlancer.flyBattleDemo.Main;
 import java.util.Random;
 
 public class EnemyPlane extends Geometry {
+    public int liveValue = 100;
+
     public EnemyPlane(Vector3f location) {
         // 创建球体
         super("球体", new Sphere(8, 15, 0.25f));
@@ -33,4 +35,16 @@ public class EnemyPlane extends Geometry {
         float y = location.getY() + 7.2f;
         return new Vector3f(x, y, 0);
     }
+
+    //受到伤害失去生命值
+    public void getHurt(int hurtValue) {
+        if (hurtValue >= 100 || this.liveValue <= 0) {
+            //直接消失
+            this.removeFromParent();
+            return;
+        }
+        this.liveValue = this.liveValue - hurtValue;
+    }
+
+
 }

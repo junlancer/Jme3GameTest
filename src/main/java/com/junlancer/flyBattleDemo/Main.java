@@ -21,7 +21,7 @@ public class Main extends SimpleApplication {
     public static InputManager inputManager;
     public static Node rootNode;
     public static ArrayList<Geometry> bullets = new ArrayList<>();
-    public static ArrayList<Geometry> enemyPlanes = new ArrayList<>();
+    public static ArrayList<EnemyPlane> enemyPlanes = new ArrayList<>();
 
     @Override
     public void simpleInitApp() {
@@ -36,6 +36,14 @@ public class Main extends SimpleApplication {
 
         rootNode.attachChild(myAPlane);
         //rootNode.attachChild(bulletNode);
+
+        if (enemyPlanes.size() < 5) {
+            for (int i = 0; i < 5; i++) {
+                EnemyPlane enemyPlane = new EnemyPlane(myAPlane.getLocalTranslation());
+                enemyPlanes.add(enemyPlane);
+                rootNode.attachChild(enemyPlane);
+            }
+        }
     }
 
     @Override
@@ -63,17 +71,18 @@ public class Main extends SimpleApplication {
             }
             geometry.move(new Vector3f(0, 2 * tpf, 0));
         }
-        if (enemyPlanes.size() < 5) {
-            for (int i = 0; i < 5; i++) {
-                enemyPlanes.add(new EnemyPlane(myAPlane.getLocalTranslation()));
-            }
-        }
+
         //敌机移动
-        for (int i = 0; i < enemyPlanes.size(); i++) {
-            rootNode.attachChild(enemyPlanes.get(i));
-            if (PointsDistance.getPointsDistance(enemyPlanes.get(i).getLocalTranslation(), myAPlane.getLocalTranslation()) > 0.75f) {
+        for (EnemyPlane enemyPlane1 : enemyPlanes) {
+            if (PointsDistance.getPointsDistance(enemyPlane1.getLocalTranslation(), myAPlane.getLocalTranslation()) > 0.75f) {
                 //未发生碰撞，移动
-                enemyPlanes.get(i).move((myAPlane.getLocalTranslation().x - enemyPlanes.get(i).getLocalTranslation().x) * tpf, (myAPlane.getLocalTranslation().y - enemyPlanes.get(i).getLocalTranslation().y) * tpf, 0);
+                enemyPlane1.move((myAPlane.getLocalTranslation().x - enemyPlane1.getLocalTranslation().x) * tpf, (myAPlane.getLocalTranslation().y - enemyPlane1.getLocalTranslation().y) * tpf, 0);
+            }
+            for (Geometry bullet : bullets) {
+                if (PointsDistance.getPointsDistance(enemyPlane1.getLocalTranslation(), bullet.getLocalTranslation()) < 0.35) {
+                    //敌机受到伤害
+                    enemyPlane1.getHurt(20);
+                }
             }
         }
         //锁定视角
